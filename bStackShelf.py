@@ -1,5 +1,7 @@
 # coding=utf-8
+# 参考文章
 # 栈和队列在python中的实现：https://www.cnblogs.com/yiduobaozhiblog1/p/9272556.html
+# Python数据结构篇（一）—— 顺序栈和链栈的实现 https://blog.csdn.net/jackandsnow/article/details/101390919
 
 # 21. 商品货架管理
 # 【问题描述】
@@ -11,7 +13,9 @@
 # 【测试数据】
 # 略，注意栈空和栈满的情况。
 
-# 栈
+# 数据结构：栈
+
+
 class Stack:
 
     # 初始化栈
@@ -58,6 +62,7 @@ def Shelf():
     tempShelf = Stack(maxSize)
     print("货架的容量是：" + str(maxSize))
 
+    # 菜单
     def show():
         cls()
         print("***********************\n")
@@ -76,13 +81,14 @@ def Shelf():
             print("***********************\n")
             print("********  进货  ********\n")
             print("***********************\n")
-            
+
         purchaseTitle()
         purchaseNumber = int(input("请输入进货的数量："))
         while not (purchaseNumber <= shelf.maxSize - shelf.length()):
             purchaseTitle()
-            purchaseNumber = int(input("没有那么多位置啦～最多只有" + str(shelf.maxSize - shelf.length()) + "个货位。请重新输入："))
-        
+            purchaseNumber = int(
+                input("没有那么多位置啦～最多只有" + str(shelf.maxSize - shelf.length()) + "个货位。请重新输入："))
+
         print("请依次输入" + str(purchaseNumber) + "个商品的生产日期，格式<20200315>：")
 
         while purchaseNumber:
@@ -95,9 +101,9 @@ def Shelf():
                     tempShelf.push(temp)
                 else:
                     break
-                
-            shelf.push(Date) 
-            
+
+            shelf.push(Date)
+
             while not (tempShelf.isEmpty()):
                 temp = tempShelf.pop()
                 shelf.push(temp)
@@ -112,7 +118,7 @@ def Shelf():
             print("***********************\n")
             print("********  出货  ********\n")
             print("***********************\n")
-            
+
         soldTitle()
         soldNumber = int(input("请输入出货的数量："))
         while True:
@@ -137,7 +143,7 @@ def Shelf():
             print("***********************\n")
             print("********货架状态********\n")
             print("***********************\n")
-            
+
         statusTitle()
         if (shelf.isEmpty()):
             print("当前货架为空，请快点进货噢！")
