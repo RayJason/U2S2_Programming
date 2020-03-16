@@ -34,7 +34,7 @@ def Shelf():
 
         purchaseTitle()
         purchaseNumber = int(input("请输入进货的数量："))
-        while not (purchaseNumber <= shelf.maxSize - shelf.length()):
+        while not (0 <= purchaseNumber <= shelf.maxSize - shelf.length()):
             purchaseTitle()
             purchaseNumber = int(
                 input("没有那么多位置啦～最多只有" + str(shelf.maxSize - shelf.length()) + "个货位。请重新输入："))
